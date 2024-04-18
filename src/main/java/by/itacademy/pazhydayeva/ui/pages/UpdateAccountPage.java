@@ -18,23 +18,14 @@ public class UpdateAccountPage {
     private WebDriver driver;
 
     private static final String UPDATE_CONTACT_DETAILS_BTN_XPATH = "//button[@class='ng-tns-c10-10']";
-
     private static final String FORENAME_FIELD_NAME = "firstName";
-
     private static final String SURNAME_FIELD_NAME = "lastName";
-
     private static final String FIELD_ERROR_SELECTOR = ".form-field-error";
-
     private static final String CONFIRM_BTN_XPATH = "//div[@role='region']//app-ui-button/button";
-
     private static final String CONFIRMATION_MSG_XPATH = "//div[@class='info-text']";
-
     private static final String COUNTRY_DDL_XPATH = "//span[@class='select-value']";
-
     private static final String COUNTRY_SEARCH_FIELD_XPATH = "//input[@class='dropdown-search-input']";
-
     private static final String COUNTRY_ITEM_XPATH = "//li[@class='list-item ng-star-inserted']";
-
     private static final String CURRENT_COUNTRY_XPATH = "//span[@class='select-value']";
 
     public UpdateAccountPage() {
@@ -68,7 +59,6 @@ public class UpdateAccountPage {
         surnameField.sendKeys(newSurname);
     }
 
-
     public void clickConfirmBtn() {
         WebElement confirmButton = driver.findElement(By.xpath(CONFIRM_BTN_XPATH));
         new Actions(driver)
@@ -94,7 +84,7 @@ public class UpdateAccountPage {
 
     public String getEmptyFieldErrorText() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(2));
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(FIELD_ERROR_SELECTOR)));    // ПЕРЕСМОТРЕТЬ
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(FIELD_ERROR_SELECTOR)));
 
         WebElement emptyForenameValidationError = driver.findElement(By.cssSelector(FIELD_ERROR_SELECTOR));
         return emptyForenameValidationError.getText();
@@ -116,10 +106,10 @@ public class UpdateAccountPage {
     }
 
     public List<WebElement> getCountryItemsList() {
-        return driver.findElements(By.xpath(COUNTRY_ITEM_XPATH));             //МЕТОД, ЧТОБЫ СОБРАТЬ СПИСОК СТРАН
+        return driver.findElements(By.xpath(COUNTRY_ITEM_XPATH));
     }
 
-    public List<String> getCountryNamesTextList() {                                //МЕТОД, ЧТОБЫ СОБРАТЬ НАЗВАНИЯ ВСЕХ СТРАН
+    public List<String> getCountryNamesTextList() {
         List<String> countryNames = new ArrayList<>();
         for (WebElement country : getCountryItemsList()) {
             countryNames.add(country.getText());
@@ -141,6 +131,4 @@ public class UpdateAccountPage {
             }
         }
     }
-
-
 }
