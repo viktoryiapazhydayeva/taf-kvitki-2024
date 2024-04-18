@@ -16,8 +16,6 @@ public class HomePage {
     private static final String ACCOUNT_ICON_NAME = "user-account-link";
     private static final String SEARCH_FIELD_NAME = "search";
 
-    //public final String SEARCH_BTN_XPATH = "//a[@class='iconpl-search search_component_button']"; // ПОКА НЕ ИСПОЛЬЗУЕТСЯ
-
     public HomePage() {
         this.driver = Driver.getDriver();
     }
