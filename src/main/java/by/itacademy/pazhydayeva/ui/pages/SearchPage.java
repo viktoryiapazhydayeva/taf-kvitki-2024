@@ -15,7 +15,7 @@ public class SearchPage {
 
     private WebDriver driver;
     private static final String NO_SEARCH_RESULT_MSG_XPATH = "//div[@class='search_results_no_results_msg']";
-    private static final String ITEM_SEARCHED_TITLE_XPATH = "//a[@data-event-id=422389]/span/span[1]/span[2]/span[@class='searchresult_foundword']";  //update %
+    private static final String ITEM_SEARCHED_TITLE_XPATH = "//a[@data-event-id=422389]/span/span[1]/span[2]/span[@class='searchresult_foundword']";
     private static final String ITEM_SHORT_TITLE_XPATH = "//span[@class='event_short_title']/span[contains(text(), 'СЛАВЯНСКИЙ')]/..";
 
     public SearchPage() {
