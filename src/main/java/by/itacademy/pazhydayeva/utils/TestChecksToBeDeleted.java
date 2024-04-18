@@ -15,7 +15,6 @@ public class TestChecksToBeDeleted {
         System.out.println(Util.getRandomEmail());
         System.out.println();
 
-
         System.out.println("MY PASSWORD METHOD");
         System.out.println(Util.getRandomPassword(8, true, true, true));
         System.out.println(Util.getRandomPassword(8, false, true, true));
@@ -29,10 +28,5 @@ public class TestChecksToBeDeleted {
         System.out.println();
 
         System.out.println(Util.getRandomPasswordRegex(8));
-
-
-
-
-
     }
 }
