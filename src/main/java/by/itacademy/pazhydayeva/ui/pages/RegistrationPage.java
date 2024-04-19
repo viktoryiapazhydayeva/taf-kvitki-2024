@@ -111,10 +111,10 @@ public class RegistrationPage {
     }
 
     public List<WebElement> getValidationErrors() {
-        return driver.findElements(By.cssSelector(FIELD_ERROR_SELECTOR));             //МЕТОД, ЧТОБЫ СОБРАТЬ ВСЕ EMPTY ВАЛИДАЦИИ В 1 КОЛЕКЦИЮ И ТЕСТ
+        return driver.findElements(By.cssSelector(FIELD_ERROR_SELECTOR));
     }
 
-    public List<String> getValidationErrorsTextList() {           //МЕТОД, ЧТОБЫ СОБРАТЬ ВСЕ EMPTY ВАЛИДАЦИИ В 1 КОЛЕКЦИЮ И ТЕСТ
+    public List<String> getValidationErrorsTextList() {
         List<String> errorsText = new ArrayList<>();
         for (WebElement error : getValidationErrors()) {
             errorsText.add(error.getText());

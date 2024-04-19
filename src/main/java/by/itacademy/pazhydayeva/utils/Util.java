@@ -1,8 +1,6 @@
 package by.itacademy.pazhydayeva.utils;
 
 import com.github.javafaker.Faker;
-import com.github.javafaker.service.FakeValuesService;
-import com.github.javafaker.service.RandomService;
 
 import java.util.*;
 
@@ -49,7 +47,7 @@ public class Util {
         return getRandomPassword(5, true, true, true);
     }
 
-    public static String getRandomPasswordRegex(int passwordLength) {
+    public static String getRandomPasswordRegex(int passwordLength) {                  //////////////////
         Faker faker = new Faker();
         return faker.regexify("(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])");
     }

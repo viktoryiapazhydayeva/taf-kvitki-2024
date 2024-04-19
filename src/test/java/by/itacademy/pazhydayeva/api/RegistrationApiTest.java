@@ -15,15 +15,15 @@ import static by.itacademy.pazhydayeva.api.KvitkiCommonRequestFactory.CENTRE_ID;
 
 public class RegistrationApiTest {
 
-    public static final User kvitkiUser = UserFactory.getRegisteredKvitkiUser();
-    public static final User newKvitkiUser = UserFactory.getNewKvitkiUser();
+    public static final User KVITKI_USER = UserFactory.getRegisteredKvitkiUser();
     private String phoneNumber = Util.getRandomPhoneNumber(9);
 
-    private void assertRegisteredUser(ValidatableResponse validatableResponse) {
-        validatableResponse.statusCode(HttpStatus.SC_OK).
-                body("customer.email", equalTo(newKvitkiUser.getEmail())).                      // вниз
-                body("customer.firstName", equalTo(newKvitkiUser.getForename())).
-                body("customer.lastName", equalTo(newKvitkiUser.getSurname())).
+    private void assertRegisteredUserDetails(ValidatableResponse validatableResponse, User user) {
+        validatableResponse.
+                statusCode(HttpStatus.SC_OK).
+                body("customer.email", equalTo(user.getEmail())).
+                body("customer.firstName", equalTo(user.getForename())).
+                body("customer.lastName", equalTo(user.getSurname())).
                 body("tokens.accessToken", notNullValue()).
                 body("tokens.refreshToken", notNullValue());
     }
@@ -31,6 +31,7 @@ public class RegistrationApiTest {
     @Test
     @DisplayName("Status 200: only Required fields are filled")
     public void testSuccessRegistration() {
+        User newKvitkiUser = UserFactory.getNewKvitkiUser();
         ValidatableResponse validatableResponse = given().
                 headers(RegistrationRequestFactory.getRequestHeaders()).
                 queryParams(RegistrationRequestFactory.getLanguageQueryParams()).
@@ -39,19 +40,13 @@ public class RegistrationApiTest {
                 post(RegistrationRequestFactory.REGISTRATION_URL).
                 then().
                 log().all();
-        assertRegisteredUser(validatableResponse);
-
+        assertRegisteredUserDetails(validatableResponse, newKvitkiUser);
     }
-    /*statusCode(HttpStatus.SC_OK).
-    body("customer.email", equalTo(email)).                      // рефактор- вынести проверки тела
-    body("customer.firstName", equalTo(firstName)).
-    body("customer.lastName", equalTo(lastName)).
-    body("tokens.accessToken", notNullValue()).
-    body("tokens.refreshToken", notNullValue());*/
 
     @Test
     @DisplayName("Status 200: All fields are filled")
     public void testSuccessRegistrationFull() {
+        User newKvitkiUser = UserFactory.getNewKvitkiUser();
         ValidatableResponse validatableResponse = given().
                 headers(RegistrationRequestFactory.getRequestHeaders()).
                 queryParams(RegistrationRequestFactory.getLanguageQueryParams()).
@@ -62,13 +57,7 @@ public class RegistrationApiTest {
                 log().all().
                 statusCode(HttpStatus.SC_OK).
                 body("customer.phoneNr", equalTo(phoneNumber));
-        assertRegisteredUser(validatableResponse);
-                /*body("customer.email", equalTo(email)).
-                body("customer.firstName", equalTo(firstName)).                    // рефактор- вынести проверки тела
-                        body("customer.lastName", equalTo(lastName)).
-                body("customer.phoneNr", equalTo(phoneNumber)).
-                body("tokens.accessToken", notNullValue()).
-                body("tokens.refreshToken", notNullValue());*/
+        assertRegisteredUserDetails(validatableResponse, newKvitkiUser);
     }
 
     @Test
@@ -77,7 +66,7 @@ public class RegistrationApiTest {
         given().
                 headers(RegistrationRequestFactory.getRequestHeaders()).
                 queryParams(RegistrationRequestFactory.getLanguageQueryParams()).
-                body(RegistrationRequestFactory.generateBodyWithRequiredFields(CENTRE_ID, Util.getRandomForename(), Util.getRandomSurname(), kvitkiUser.getEmail(), Util.getRandomPassword())).
+                body(RegistrationRequestFactory.generateBodyWithRequiredFields(CENTRE_ID, Util.getRandomForename(), Util.getRandomSurname(), KVITKI_USER.getEmail(), Util.getRandomPassword())).
                 when().
                 post(RegistrationRequestFactory.REGISTRATION_URL).
                 then().
@@ -190,7 +179,6 @@ public class RegistrationApiTest {
                 statusCode(HttpStatus.SC_INTERNAL_SERVER_ERROR).
                 body("message", equalTo("api_internal_server_error"));
     }
-
 
     @Test
     @DisplayName("Status 400: Params are missed")
