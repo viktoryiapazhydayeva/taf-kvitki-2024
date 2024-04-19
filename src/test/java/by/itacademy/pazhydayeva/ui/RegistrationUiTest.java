@@ -9,12 +9,15 @@ import by.itacademy.pazhydayeva.user.UserFactory;
 import by.itacademy.pazhydayeva.utils.Util;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+@Tag("UI")
+@Tag("Registration")
 public class RegistrationUiTest extends BaseTest {
 
     private static final String REGISTRATION_ERROR_MESSAGE = "Введенное имя недействительно, если длина имени или фамилии составляет менее 2 символов.";

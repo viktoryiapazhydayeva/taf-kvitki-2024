@@ -3,8 +3,11 @@ package by.itacademy.pazhydayeva.ui;
 import by.itacademy.pazhydayeva.ui.pages.HomePage;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
+@Tag("UI")
+@Tag("Home page")
 public class HomePageUiTest extends BaseTest {
 
     @Test

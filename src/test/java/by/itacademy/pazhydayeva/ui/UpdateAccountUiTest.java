@@ -8,10 +8,13 @@ import by.itacademy.pazhydayeva.user.User;
 import by.itacademy.pazhydayeva.utils.Util;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static by.itacademy.pazhydayeva.user.UserFactory.getRegisteredKvitkiUser;
 
+@Tag("UI")
+@Tag("Update account")
 public class UpdateAccountUiTest extends BaseTest {
 
     private static final String EMPTY_FORENAME_VALIDATION_ERROR = "Пожалуйста, заполните поле (Имя)";

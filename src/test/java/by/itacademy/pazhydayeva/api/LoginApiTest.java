@@ -5,12 +5,15 @@ import by.itacademy.pazhydayeva.user.UserFactory;
 import by.itacademy.pazhydayeva.utils.Util;
 import org.apache.http.HttpStatus;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static by.itacademy.pazhydayeva.api.KvitkiCommonRequestFactory.CENTRE_ID;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.*;
 
+@Tag("API")
+@Tag("Login")
 public class LoginApiTest {
     public static final User kvitkiUser = UserFactory.getRegisteredKvitkiUser();
 

@@ -6,6 +6,7 @@ import by.itacademy.pazhydayeva.utils.Util;
 import io.restassured.response.ValidatableResponse;
 import org.apache.http.HttpStatus;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
@@ -13,6 +14,8 @@ import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.notNullValue;
 import static by.itacademy.pazhydayeva.api.KvitkiCommonRequestFactory.CENTRE_ID;
 
+@Tag("API")
+@Tag("Registration")
 public class RegistrationApiTest {
 
     public static final User KVITKI_USER = UserFactory.getRegisteredKvitkiUser();

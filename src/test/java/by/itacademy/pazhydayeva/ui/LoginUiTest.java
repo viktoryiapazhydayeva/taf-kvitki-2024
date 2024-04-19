@@ -6,11 +6,14 @@ import by.itacademy.pazhydayeva.ui.services.LoginService;
 import by.itacademy.pazhydayeva.user.User;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import by.itacademy.pazhydayeva.utils.Util;
 
 import static by.itacademy.pazhydayeva.user.UserFactory.getRegisteredKvitkiUser;
 
+@Tag("UI")
+@Tag("Login")
 public class LoginUiTest extends BaseTest {
 
     private static final String WRONG_CREDENTIALS_ERROR_MSG = "Электронная почта или пароль недействительны. Система была обновлена, " +
