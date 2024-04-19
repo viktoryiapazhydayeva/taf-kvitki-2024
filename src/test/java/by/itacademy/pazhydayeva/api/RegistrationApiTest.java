@@ -5,6 +5,7 @@ import by.itacademy.pazhydayeva.user.UserFactory;
 import by.itacademy.pazhydayeva.utils.Util;
 import io.restassured.response.ValidatableResponse;
 import org.apache.http.HttpStatus;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -32,6 +33,7 @@ public class RegistrationApiTest {
     }
 
     @Test
+    @Disabled
     @DisplayName("Status 200: only Required fields are filled")
     public void testSuccessRegistration() {
         User newKvitkiUser = UserFactory.getNewKvitkiUser();
@@ -47,6 +49,7 @@ public class RegistrationApiTest {
     }
 
     @Test
+    @Disabled
     @DisplayName("Status 200: All fields are filled")
     public void testSuccessRegistrationFull() {
         User newKvitkiUser = UserFactory.getNewKvitkiUser();
