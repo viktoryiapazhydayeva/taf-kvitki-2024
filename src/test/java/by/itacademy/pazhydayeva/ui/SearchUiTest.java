@@ -5,8 +5,11 @@ import by.itacademy.pazhydayeva.ui.pages.SearchPage;
 import by.itacademy.pazhydayeva.utils.Util;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
+@Tag("UI")
+@Tag("Search")
 public class SearchUiTest extends BaseTest {
     private static final String EXPECTED_NO_SEARCH_RESULT_MSG = "По вашему запросу ничего не найдено";
     private HomePage homePage = new HomePage();
