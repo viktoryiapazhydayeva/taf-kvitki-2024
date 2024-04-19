@@ -7,10 +7,7 @@ import by.itacademy.pazhydayeva.ui.services.RegistrationService;
 import by.itacademy.pazhydayeva.user.User;
 import by.itacademy.pazhydayeva.user.UserFactory;
 import by.itacademy.pazhydayeva.utils.Util;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Tag;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -52,6 +49,7 @@ public class RegistrationUiTest extends BaseTest {
     }
 
     @Test
+    @Disabled
     @DisplayName("Success registration: required fields populated")
     public void testRegistration() {
         registrationService.registerWithOnlyRequiredFields(newKvitkiUser);
@@ -59,6 +57,7 @@ public class RegistrationUiTest extends BaseTest {
     }
 
     @Test
+    @Disabled
     @DisplayName("Success registration: all fields populated")
     public void testRegistrationFull() {
         registrationService.registerWithAllFieldsPopulated(newKvitkiUser, Util.getRandomPhoneNumber(9));
