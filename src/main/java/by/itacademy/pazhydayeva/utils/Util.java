@@ -33,10 +33,9 @@ public class Util {
         return email.toLowerCase();
     }
 
-    public static String getRandomPassword(int passwordLength, boolean includeUppercase, boolean includeSpecial, boolean includeDigit) {      // ??????
+    public static String getRandomPassword(int passwordLength, boolean includeUppercase, boolean includeSpecial, boolean includeDigit) {      // !!
         Faker faker = new Faker();
         return faker.internet().password(passwordLength, passwordLength + 1, includeUppercase, includeSpecial, includeDigit);
-        //return faker.internet().password(passwordLength, passwordLength + 1, true, true, true).toUpperCase();
     }
 
     public static String getRandomPassword() {
