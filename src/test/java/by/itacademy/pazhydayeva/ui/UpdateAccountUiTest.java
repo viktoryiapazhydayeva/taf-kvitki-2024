@@ -29,8 +29,8 @@ public class UpdateAccountUiTest extends BaseTest {
     @Test
     @DisplayName("Update First Name: success")
     public void testFirstNameUpdate() {
-        loginService.login(kvitkiUser.getEmail(), kvitkiUser.getPassword());   // ОТРЕФАКТОРИТЬ, ОБЪЕДИНИТЬ СТЕПЫ
-        updateAccountPage.clickUpdateContactDetailsBtn();                              // НАПИСАТЬ ОБЩИЕ МЕТОДЫ ДЛЯ ЛЮБОГО ПОЛЯ???
+        loginService.login(kvitkiUser.getEmail(), kvitkiUser.getPassword());
+        updateAccountPage.clickUpdateContactDetailsBtn();
         updateAccountPage.removeForenameValue();
         updateAccountPage.enterNewForename(Util.getRandomForename());
         updateAccountPage.clickConfirmBtn();
