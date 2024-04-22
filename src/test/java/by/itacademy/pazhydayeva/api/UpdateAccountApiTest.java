@@ -13,7 +13,7 @@ import static org.hamcrest.Matchers.equalTo;
 import static by.itacademy.pazhydayeva.api.KvitkiCommonRequestFactory.CENTRE_ID;
 
 @Tag("API")
-@Tag("Update account")
+@Tag("UpdateAccount")
 public class UpdateAccountApiTest {
 
     private static final String INTERNAT_FORENAME = "Arnbjörg-Ąžuolas";
