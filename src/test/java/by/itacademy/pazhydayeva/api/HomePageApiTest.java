@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 import static io.restassured.RestAssured.given;
 
 @Tag("API")
-@Tag("Home page")
+@Tag("HomePage")
 public class HomePageApiTest {
 
     @Test
