@@ -12,7 +12,6 @@ import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
-import static org.hamcrest.Matchers.notNullValue;
 import static by.itacademy.pazhydayeva.api.KvitkiCommonRequestFactory.CENTRE_ID;
 
 @Tag("API")
@@ -21,16 +20,6 @@ public class RegistrationApiTest {
 
     public static final User KVITKI_USER = UserFactory.getRegisteredKvitkiUser();
     private String phoneNumber = Util.getRandomPhoneNumber(9);
-
-    private void assertRegisteredUserDetails(ValidatableResponse validatableResponse, User user) {
-        validatableResponse.
-                statusCode(HttpStatus.SC_OK).
-                body("customer.email", equalTo(user.getEmail())).
-                body("customer.firstName", equalTo(user.getForename())).
-                body("customer.lastName", equalTo(user.getSurname())).
-                body("tokens.accessToken", notNullValue()).
-                body("tokens.refreshToken", notNullValue());
-    }
 
     @Test
     @Disabled
@@ -45,7 +34,7 @@ public class RegistrationApiTest {
                 post(RegistrationRequestFactory.REGISTRATION_URL).
                 then().
                 log().all();
-        assertRegisteredUserDetails(validatableResponse, newKvitkiUser);
+        RegistrationResponseService.assertRegisteredUserDetails(validatableResponse, newKvitkiUser);
     }
 
     @Test
@@ -63,7 +52,7 @@ public class RegistrationApiTest {
                 log().all().
                 statusCode(HttpStatus.SC_OK).
                 body("customer.phoneNr", equalTo(phoneNumber));
-        assertRegisteredUserDetails(validatableResponse, newKvitkiUser);
+        RegistrationResponseService.assertRegisteredUserDetails(validatableResponse, newKvitkiUser);
     }
 
     @Test
