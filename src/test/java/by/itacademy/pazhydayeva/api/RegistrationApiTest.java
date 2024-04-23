@@ -72,7 +72,7 @@ public class RegistrationApiTest {
         given().
                 headers(RegistrationRequestFactory.getRequestHeaders()).
                 queryParams(RegistrationRequestFactory.getLanguageQueryParams()).
-                body(RegistrationRequestFactory.generateBodyWithRequiredFields(CENTRE_ID, Util.getRandomForename(), Util.getRandomSurname(), KVITKI_USER.getEmail(), Util.getRandomPassword())).
+                body(RegistrationRequestFactory.generateBodyWithRequiredFields(CENTRE_ID, Util.getRandomForename(), Util.getRandomSurname(), KVITKI_USER.getEmail(), Util.generatePassword())).
                 when().
                 post(RegistrationRequestFactory.REGISTRATION_URL).
                 then().
@@ -87,7 +87,7 @@ public class RegistrationApiTest {
         given().
                 headers(RegistrationRequestFactory.getRequestHeaders()).
                 queryParams(RegistrationRequestFactory.getLanguageQueryParams()).
-                body(RegistrationRequestFactory.generateBodyWithRequiredFields(CENTRE_ID, Util.getRandomString(1), Util.getRandomSurname(), Util.getRandomSurname(), Util.getRandomPassword())).
+                body(RegistrationRequestFactory.generateBodyWithRequiredFields(CENTRE_ID, Util.getRandomString(1), Util.getRandomSurname(), Util.getRandomSurname(), Util.generatePassword())).
                 when().
                 post(RegistrationRequestFactory.REGISTRATION_URL).
                 then().
@@ -102,7 +102,7 @@ public class RegistrationApiTest {
         given().
                 headers(RegistrationRequestFactory.getRequestHeaders()).
                 queryParams(RegistrationRequestFactory.getLanguageQueryParams()).
-                body(RegistrationRequestFactory.generateBodyWithRequiredFields(CENTRE_ID, Util.getRandomForename(), Util.getRandomString(1), Util.getRandomEmail(), Util.getRandomPassword())).
+                body(RegistrationRequestFactory.generateBodyWithRequiredFields(CENTRE_ID, Util.getRandomForename(), Util.getRandomString(1), Util.getRandomEmail(), Util.generatePassword())).
                 when().
                 post(RegistrationRequestFactory.REGISTRATION_URL).
                 then().
@@ -117,7 +117,7 @@ public class RegistrationApiTest {
         given().
                 headers(RegistrationRequestFactory.getRequestHeaders()).
                 queryParams(RegistrationRequestFactory.getLanguageQueryParams()).
-                body(RegistrationRequestFactory.generateBodyWithRequiredFields(CENTRE_ID, Util.getRandomForename(), Util.getRandomSurname(), Util.getRandomString(7), Util.getRandomPassword())).
+                body(RegistrationRequestFactory.generateBodyWithRequiredFields(CENTRE_ID, Util.getRandomForename(), Util.getRandomSurname(), Util.getRandomString(7), Util.generatePassword())).
                 when().
                 post(RegistrationRequestFactory.REGISTRATION_URL).
                 then().
@@ -162,7 +162,7 @@ public class RegistrationApiTest {
         given().
                 headers(RegistrationRequestFactory.getRequestHeaders()).
                 queryParams(RegistrationRequestFactory.getLanguageQueryParams()).
-                body(RegistrationRequestFactory.generateBodyWithRequiredFields(CENTRE_ID, Util.getRandomString(600), Util.getRandomSurname(), Util.getRandomEmail(), Util.getRandomPassword())).
+                body(RegistrationRequestFactory.generateBodyWithRequiredFields(CENTRE_ID, Util.getRandomString(600), Util.getRandomSurname(), Util.getRandomEmail(), Util.generatePassword())).
                 when().
                 post(RegistrationRequestFactory.REGISTRATION_URL).
                 then().
@@ -177,7 +177,7 @@ public class RegistrationApiTest {
         given().
                 headers(RegistrationRequestFactory.getRequestHeaders()).
                 queryParams(RegistrationRequestFactory.getLanguageQueryParams()).
-                body(RegistrationRequestFactory.generateBodyWithRequiredFields(CENTRE_ID, Util.getRandomForename(), Util.getRandomString(600), Util.getRandomEmail(), Util.getRandomPassword())).
+                body(RegistrationRequestFactory.generateBodyWithRequiredFields(CENTRE_ID, Util.getRandomForename(), Util.getRandomString(600), Util.getRandomEmail(), Util.generatePassword())).
                 when().
                 post(RegistrationRequestFactory.REGISTRATION_URL).
                 then().
@@ -191,7 +191,7 @@ public class RegistrationApiTest {
     public void testRegistrationWithoutLanguageParams() {
         given().
                 headers(RegistrationRequestFactory.getRequestHeaders()).
-                body(RegistrationRequestFactory.generateBodyWithRequiredFields(CENTRE_ID, Util.getRandomForename(), Util.getRandomSurname(), Util.getRandomEmail(), Util.getShortRandomPassword())).
+                body(RegistrationRequestFactory.generateBodyWithRequiredFields(CENTRE_ID, Util.getRandomForename(), Util.getRandomSurname(), Util.getRandomEmail(), Util.generatePassword())).
                 when().
                 post(RegistrationRequestFactory.REGISTRATION_URL).
                 then().
@@ -206,7 +206,7 @@ public class RegistrationApiTest {
         given().
                 headers(RegistrationRequestFactory.getRequestHeaders()).
                 queryParams(RegistrationRequestFactory.getInvalidQueryParams()).
-                body(RegistrationRequestFactory.generateBodyWithRequiredFields(CENTRE_ID, Util.getRandomForename(), Util.getRandomSurname(), Util.getRandomEmail(), Util.getRandomPassword())).
+                body(RegistrationRequestFactory.generateBodyWithRequiredFields(CENTRE_ID, Util.getRandomForename(), Util.getRandomSurname(), Util.getRandomEmail(), Util.generatePassword())).
                 when().
                 post(RegistrationRequestFactory.REGISTRATION_URL).
                 then().
