@@ -41,7 +41,7 @@ public class LoginUiTest extends BaseTest {
     @Test
     @DisplayName("Login with wrong password")
     public void testLoginWitIncorrectPassword() {
-        loginService.login(kvitkiUser.getEmail(), Util.getRandomPassword());
+        loginService.login(kvitkiUser.getEmail(), Util.generatePassword());
         Assertions.assertEquals(WRONG_CREDENTIALS_ERROR_MSG, loginPage.getLoginErrorMsgText());
     }
 
