@@ -8,6 +8,6 @@ public class UserFactory {
     }
 
     public static User getNewKvitkiUser(){
-        return new User(Util.getRandomForename(), Util.getRandomSurname(), Util.getRandomEmail(), Util.getRandomPassword());
+        return new User(Util.getRandomForename(), Util.getRandomSurname(), Util.getRandomEmail(), Util.generatePassword());
     }
 }
