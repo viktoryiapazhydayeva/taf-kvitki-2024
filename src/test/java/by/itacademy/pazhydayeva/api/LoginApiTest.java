@@ -50,7 +50,7 @@ public class LoginApiTest {
     public void testLoginWithWrongPassword() {
         given().
                 headers(LoginRequestFactory.getRequestHeaders()).
-                body(LoginRequestFactory.generateLoginBody(CENTRE_ID, kvitkiUser.getEmail(), Util.getRandomPassword())).
+                body(LoginRequestFactory.generateLoginBody(CENTRE_ID, kvitkiUser.getEmail(), Util.generatePassword())).
                 when().
                 post(LoginRequestFactory.LOGIN_URL).
                 then().
@@ -78,7 +78,7 @@ public class LoginApiTest {
     public void testLoginWithWrongCentreId() {
         given().
                 headers(LoginRequestFactory.getRequestHeaders()).
-                body(LoginRequestFactory.generateLoginBody(1020, Util.getRandomEmail(), Util.getRandomPassword())).
+                body(LoginRequestFactory.generateLoginBody(1020, Util.getRandomEmail(), Util.generatePassword())).
                 when().
                 post(LoginRequestFactory.LOGIN_URL).
                 then().
@@ -92,7 +92,7 @@ public class LoginApiTest {
     public void testLoginWithInvalidEmail() {
         given().
                 headers(LoginRequestFactory.getRequestHeaders()).
-                body(LoginRequestFactory.generateLoginBody(CENTRE_ID, "", Util.getRandomPassword())).
+                body(LoginRequestFactory.generateLoginBody(CENTRE_ID, "", Util.generatePassword())).
                 when().
                 post(LoginRequestFactory.LOGIN_URL).
                 then().
@@ -120,7 +120,7 @@ public class LoginApiTest {
     public void testLoginWithInvalidCentreId() {
         given().
                 headers(LoginRequestFactory.getRequestHeaders()).
-                body(LoginRequestFactory.generateLoginBody("1873", Util.getRandomEmail(), Util.getRandomPassword())).
+                body(LoginRequestFactory.generateLoginBody("1873", Util.getRandomEmail(), Util.generatePassword())).
                 when().
                 post(LoginRequestFactory.LOGIN_URL).
                 then().
