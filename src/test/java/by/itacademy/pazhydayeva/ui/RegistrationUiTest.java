@@ -67,14 +67,14 @@ public class RegistrationUiTest extends BaseTest {
     @Test
     @DisplayName("Fist Name is too short")
     public void testRegistrationWithTooShortForename() {
-        registrationService.registerWithOnlyRequiredFields(Util.getRandomString(1), Util.getRandomSurname(), Util.getRandomEmail(), Util.getRandomPassword());
+        registrationService.registerWithOnlyRequiredFields(Util.getRandomString(1), Util.getRandomSurname(), Util.getRandomEmail(), Util.generatePassword());
         Assertions.assertEquals(REGISTRATION_ERROR_MESSAGE, registrationPage.getValidationErrorText());
     }
 
     @Test
     @DisplayName("Last Name is too short")
     public void testRegistrationWithTooShortSurname() {
-        registrationService.registerWithAllFieldsPopulated(Util.getRandomForename(), Util.getRandomString(1), Util.getRandomEmail(), Util.getRandomPhoneNumber(9), Util.getRandomPassword());
+        registrationService.registerWithAllFieldsPopulated(Util.getRandomForename(), Util.getRandomString(1), Util.getRandomEmail(), Util.getRandomPhoneNumber(9), Util.generatePassword());
         Assertions.assertEquals(REGISTRATION_ERROR_MESSAGE, registrationPage.getValidationErrorText());
     }
 
@@ -88,21 +88,21 @@ public class RegistrationUiTest extends BaseTest {
     @Test
     @DisplayName("Password with no digits")
     public void testPasswordWithoutDigitsValidation() {
-        registrationService.fillPassword(Util.getRandomPassword(8, true, true, false));
+        registrationService.fillPassword(Util.getRandomPassword(12, true, true, false));
         Assertions.assertEquals(PASSWORD_NO_DIGITS_ERROR, registrationPage.getFieldErrorText());
     }
 
     @Test
     @DisplayName("Password with no capital letter")
     public void testPasswordWithoutCapitalLetterValidation() {
-        registrationService.fillPassword(Util.getRandomPassword(8, false, true, true));
+        registrationService.fillPassword(Util.generatePassword().toLowerCase());
         Assertions.assertEquals(PASSWORD_NO_CAPITAL_LETTER_ERROR, registrationPage.getFieldErrorText());
     }
 
     @Test
     @DisplayName("Password with no lowercase letter")
     public void testPasswordWithoutLowercaseLetterValidation() {
-        registrationService.fillPassword(Util.getRandomPassword().toUpperCase());
+        registrationService.fillPassword(Util.generatePassword().toUpperCase());
         Assertions.assertEquals(PASSWORD_NO_LOWERCASE_LETTER_ERROR, registrationPage.getFieldErrorText());
     }
 
@@ -116,21 +116,21 @@ public class RegistrationUiTest extends BaseTest {
     @Test
     @DisplayName("First Name is empty")
     public void testFistNameFieldValidation() {
-        registrationService.fillRequiredFieldsForValidation("", Util.getRandomSurname(), Util.getRandomEmail(), Util.getRandomPassword());
+        registrationService.fillRequiredFieldsForValidation("", Util.getRandomSurname(), Util.getRandomEmail(), Util.generatePassword());
         Assertions.assertEquals(EMPTY_FORENAME_ERROR, registrationPage.getFieldErrorText());
     }
 
     @Test
     @DisplayName("Last Name is empty")
     public void testLastNameFieldValidation() {
-        registrationService.fillRequiredFieldsForValidation(Util.getRandomForename(), "", Util.getRandomEmail(), Util.getRandomPassword());
+        registrationService.fillRequiredFieldsForValidation(Util.getRandomForename(), "", Util.getRandomEmail(), Util.generatePassword());
         Assertions.assertEquals(EMPTY_SURNAME_ERROR, registrationPage.getFieldErrorText());
     }
 
     @Test
     @DisplayName("Email is empty")
     public void testEmailFieldValidation() {
-        registrationService.fillRequiredFieldsForValidation(Util.getRandomForename(), Util.getRandomSurname(), "", Util.getRandomPassword());
+        registrationService.fillRequiredFieldsForValidation(Util.getRandomForename(), Util.getRandomSurname(), "", Util.generatePassword());
         Assertions.assertEquals(EMPTY_EMAIL_ERROR, registrationPage.getFieldErrorText());
     }
 
