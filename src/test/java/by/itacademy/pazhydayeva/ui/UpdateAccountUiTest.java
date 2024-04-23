@@ -70,7 +70,7 @@ public class UpdateAccountUiTest extends BaseTest {
 
     @Test
     @DisplayName("Update Country field")
-    public void testCountryUpdateOne() {
+    public void testCountryUpdate() {
         loginService.login(kvitkiUser.getEmail(), kvitkiUser.getPassword());
         updateAccountPage.clickUpdateContactDetailsBtn();
         updateAccountPage.expandCountryDdl();
@@ -81,7 +81,7 @@ public class UpdateAccountUiTest extends BaseTest {
 
     @Test
     @DisplayName("Update Country field")
-    public void testCountryUpdate() {
+    public void testCountryUpdateSec() {
         loginService.login(kvitkiUser.getEmail(), kvitkiUser.getPassword());
         updateAccountPage.clickUpdateContactDetailsBtn();
         updateAccountPage.expandCountryDdl();
