@@ -45,7 +45,7 @@ public class LoginPage {
 
     public String getLoginErrorMsgText() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(3));
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(ERROR_MSG_XPATH)));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(ERROR_MSG_XPATH)));
 
         WebElement loginErrorMsg = driver.findElement(By.xpath(ERROR_MSG_XPATH));
         return loginErrorMsg.getText();
