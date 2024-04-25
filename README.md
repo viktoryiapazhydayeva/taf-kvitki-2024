@@ -7,14 +7,14 @@ UI and API tests for the following source:  [kvitki.by](https://www.kvitki.by)
 
 The project is divided into multiple modules:
 
--   driver: creation of WebDriver instance
--   pages: contains PageObjects for interaction with web elements
--   steps: contains methods for e2e Login and Registration flow
--   utils: factory of test data generation (names, emails, passwords, phone numbers)
--   user: factory of registered and the newly created users
--   api: contains factories for API requests generation and service for receiving registered user's access token 
--   UI tests
--   API test
+-   <b>driver</b>: creation of WebDriver instance
+-   <b>pages</b>: contains PageObjects for interaction with web elements
+-   <b>steps</b>: contains methods for e2e Login and Registration flow
+-   <b>utils</b>: factory of test data generation (names, emails, passwords, phone numbers)
+-   <b>user</b>: factory of registered and the newly created users
+-   <b>api</b>: contains factories for API requests generation and service for receiving registered user's access token 
+-   <b>UI tests</b>
+-   <b>API test</b>
 
 
 ## Project specification
@@ -44,9 +44,9 @@ The project is divided into multiple modules:
 
 ## Usage
 
-Preparation: Java 11
+<b>Preparation</b>: Java 11
 
-To run tests:
+<b>To run tests</b>:
 - execute Maven-> Lifecycle-> test (for IntelliJ IDEA)
 - or run the following command via terminal: 
 ```bash
@@ -54,11 +54,11 @@ mvn clean test
 ```
 
 
-To manage tests execution scope use already assigned JUnit tags.
-<p>Default run configuration includes all tests:  <i>API and UI groups</i> (specified in pom.xml-> maven-surefire-plugin).</p>
-Available groups: HomePage, Login, Registration, UpdateAccount, Search, API, UI.
+<b>To manage</b> tests execution scope use already assigned JUnit tags.
+<p>Default run configuration includes all tests:  <i>API and UI groups</i> (specified in pom.xml-> build-> plugins-> plugin (maven-surefire-plugin)-> configuration-> properties.</p>
+<b>Available groups</b>: HomePage, Login, Registration, UpdateAccount, Search, API, UI.
 
-To run a specific group:
+<b>To run a specific group</b>:
 * specify it via console command e.g.:
 ```bash
 mvn test -Dgroups=API
@@ -66,7 +66,7 @@ mvn test -Dgroups=API
 * or update 'groups' path in pom.xml-> 'build' section
 
 <p></p>
-<b>Contributor:</b> [Viktoryia Pazhydayeva](https://github.com/viktoryiapazhydayeva)
+<b>Contributor:</b> Viktoryia Pazhydayeva
 
 
 
