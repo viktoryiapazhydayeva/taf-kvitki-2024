@@ -24,6 +24,7 @@ The project is divided into multiple modules:
 - web automation framework- [Selenium](https://www.selenium.dev/)
 - unit testing framework: [JUnit](https://junit.org/junit5/)
 - API test framework: [REST-assured](https://rest-assured.io/)
+- reporting tool: [Allure Report](https://allurereport.org/)
 
 ## Tests composition
 
