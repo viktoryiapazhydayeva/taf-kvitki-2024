@@ -9,6 +9,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class RegistrationPage {
@@ -28,6 +29,21 @@ public class RegistrationPage {
     private static final String PASSWORD_LENGTH_ERROR_XPATH = "//app-collapsible[@class='form-field-error ng-tns-c7-16 ng-tns-c6-17 ng-trigger ng-trigger-slideInOut ng-star-inserted']";
     private static final String FIELD_ERROR_SELECTOR = ".form-field-error";
     private static final String BACKGROUND_IMG_XPATH = "//div[@class='background-image']";
+    public static final String REGISTRATION_ERROR_MESSAGE = "Введенное имя недействительно, если длина имени или фамилии составляет менее 2 символов.";
+    public static final String PASSWORD_LENGTH_ERROR = "Пароль должен содержать как минимум 8 знаков!";
+    public static final String PASSWORD_NO_DIGITS_ERROR = "Пароль должен содержать как минимум одно число";
+    public static final String PASSWORD_NO_CAPITAL_LETTER_ERROR = "Пароль должен содержать как минимум одну заглавную букву";
+    public static final String PASSWORD_NO_LOWERCASE_LETTER_ERROR = "Пароль должен содержать как минимум одну строчную букву";
+    public static final List<String> ERRORS_TEXT_LIST = new ArrayList<>(Arrays.asList("Пожалуйста, заполните поле (Имя)", "Пожалуйста, заполните поле (Фамилия)",
+            "Пожалуйста, заполните поле (Эл. почта)", "Пожалуйста, заполните поле (Пароль)"));
+    public static final String EMPTY_FORENAME_ERROR = "Пожалуйста, заполните поле (Имя)";
+    public static final String EMPTY_SURNAME_ERROR = "Пожалуйста, заполните поле (Фамилия)";
+    public static final String EMPTY_EMAIL_ERROR = "Пожалуйста, заполните поле (Эл. почта)";
+    public static final String EMPTY_PASSWORD_ERROR = "Пожалуйста, заполните поле (Пароль)";
+    public static final String EMAIL_FORMAT_ERROR = "Пожалуйста, введите адрес электронной почты в правильном формате: name@example.com";
+    public static final String PHONE_NUMBER_LENGTH_ERROR = "Номер телефона слишком короткий, пожалуйста, проверьте номер";
+    public static final String PHONE_NUMBER_FORMAT_ERROR = "В поле для номера телефона разрешено использовать только цифры от 0 до 9!";
+    public static final String INVALID_PHONE_NUMBER_ERROR = "Номер телефона указан неверно, пожалуйста, проверьте номер";
 
     public RegistrationPage() {
         this.driver = Driver.getDriver();

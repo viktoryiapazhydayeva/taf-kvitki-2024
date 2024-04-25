@@ -20,6 +20,10 @@ public class HomePage {
         this.driver = Driver.getDriver();
     }
 
+    public void open() {
+        driver.get("https://www.kvitki.by/");
+    }
+
     public void acceptCookie() {
         WebElement cookieDialogBtn = driver.findElement(By.xpath(COOKIE_BTN_XPATH));
         if (cookieDialogBtn.isDisplayed()) {
