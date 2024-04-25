@@ -16,7 +16,6 @@ import java.util.List;
 public class UpdateAccountPage {
 
     private WebDriver driver;
-
     private static final String UPDATE_CONTACT_DETAILS_BTN_XPATH = "//button[@class='ng-tns-c10-10']";
     private static final String FORENAME_FIELD_NAME = "firstName";
     private static final String SURNAME_FIELD_NAME = "lastName";
@@ -27,6 +26,9 @@ public class UpdateAccountPage {
     private static final String COUNTRY_SEARCH_FIELD_XPATH = "//input[@class='dropdown-search-input']";
     private static final String COUNTRY_ITEM_XPATH = "//li[@class='list-item ng-star-inserted']";
     private static final String CURRENT_COUNTRY_XPATH = "//span[@class='select-value']";
+    public static final String EMPTY_FORENAME_VALIDATION_ERROR = "Пожалуйста, заполните поле (Имя)";
+    public static final String EMPTY_SURNAME_VALIDATION_ERROR = "Пожалуйста, заполните поле (Фамилия)";
+    public static final String SUCCESS_CONFIRMATION_MSG = "Данные сохранены";
 
     public UpdateAccountPage() {
         this.driver = Driver.getDriver();

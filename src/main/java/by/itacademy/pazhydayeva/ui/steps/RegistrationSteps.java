@@ -1,17 +1,17 @@
-package by.itacademy.pazhydayeva.ui.services;
+package by.itacademy.pazhydayeva.ui.steps;
 
 import by.itacademy.pazhydayeva.ui.pages.HomePage;
 import by.itacademy.pazhydayeva.ui.pages.RegistrationPage;
 import by.itacademy.pazhydayeva.user.User;
 
-public class RegistrationService {
+public class RegistrationSteps {
 
     private HomePage homePage;
     private RegistrationPage registrationPage;
 
-    public RegistrationService(HomePage homePage, RegistrationPage registrationPage) {
-        this.homePage = homePage;
-        this.registrationPage = registrationPage;
+    public RegistrationSteps() {
+        this.homePage = new HomePage();
+        this.registrationPage = new RegistrationPage();
     }
 
     private void fillRequiredFields(String forename, String surname, String email, String password) {

@@ -1,16 +1,16 @@
-package by.itacademy.pazhydayeva.ui.services;
+package by.itacademy.pazhydayeva.ui.steps;
 
 import by.itacademy.pazhydayeva.ui.pages.HomePage;
 import by.itacademy.pazhydayeva.ui.pages.LoginPage;
 import by.itacademy.pazhydayeva.user.User;
 
-public class LoginService {
+public class LoginSteps {
     private HomePage homePage;
     private LoginPage loginPage;
 
-    public LoginService(HomePage homePage, LoginPage loginPage) {
-        this.homePage = homePage;
-        this.loginPage = loginPage;
+    public LoginSteps() {
+        this.homePage = new HomePage();
+        this.loginPage = new LoginPage();
     }
 
     public void login(User user) {
@@ -19,6 +19,7 @@ public class LoginService {
         loginPage.enterPassword(user.getPassword());
         loginPage.confirmLogin();
     }
+
     public void login(String email, String password) {
         homePage.openLoginForm();
         loginPage.enterEmail(email);

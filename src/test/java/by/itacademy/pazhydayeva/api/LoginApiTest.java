@@ -3,6 +3,7 @@ package by.itacademy.pazhydayeva.api;
 import by.itacademy.pazhydayeva.user.User;
 import by.itacademy.pazhydayeva.user.UserFactory;
 import by.itacademy.pazhydayeva.utils.Util;
+import io.qameta.allure.restassured.AllureRestAssured;
 import org.apache.http.HttpStatus;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
@@ -15,14 +16,15 @@ import static org.hamcrest.Matchers.*;
 @Tag("API")
 @Tag("Login")
 public class LoginApiTest {
-    public static final User kvitkiUser = UserFactory.getRegisteredKvitkiUser();
 
     @Test
     @DisplayName("Status 200: Success login")
     public void testLogin() {
+        User kvitkiUser = UserFactory.getRegisteredKvitkiUser();
         given().
                 headers(LoginRequestFactory.getRequestHeaders()).
                 body(LoginRequestFactory.generateLoginBody(CENTRE_ID, kvitkiUser)).
+                filter(new AllureRestAssured()).
                 when().
                 post(LoginRequestFactory.LOGIN_URL).
                 then().
@@ -35,6 +37,7 @@ public class LoginApiTest {
     @Test
     @DisplayName("Status 404: Wrong URL")
     public void testLoginWrongUrl() {
+        User kvitkiUser = UserFactory.getRegisteredKvitkiUser();
         given().
                 headers(LoginRequestFactory.getRequestHeaders()).
                 body(LoginRequestFactory.generateLoginBody(CENTRE_ID, kvitkiUser)).
@@ -48,6 +51,7 @@ public class LoginApiTest {
     @Test
     @DisplayName("Status 401: Unauthorized- wrong password")
     public void testLoginWithWrongPassword() {
+        User kvitkiUser = UserFactory.getRegisteredKvitkiUser();
         given().
                 headers(LoginRequestFactory.getRequestHeaders()).
                 body(LoginRequestFactory.generateLoginBody(CENTRE_ID, kvitkiUser.getEmail(), Util.generatePassword())).
@@ -62,6 +66,7 @@ public class LoginApiTest {
     @Test
     @DisplayName("Status 401: Unauthorized- wrong email")
     public void testLoginWithWrongEmail() {
+        User kvitkiUser = UserFactory.getRegisteredKvitkiUser();
         given().
                 headers(LoginRequestFactory.getRequestHeaders()).
                 body(LoginRequestFactory.generateLoginBody(CENTRE_ID, Util.getRandomEmail(), kvitkiUser.getEmail())).
@@ -132,6 +137,7 @@ public class LoginApiTest {
     @Test
     @DisplayName("Status 400: Malformed Body- no password in body")
     public void testLoginWithoutPassword() {
+        User kvitkiUser = UserFactory.getRegisteredKvitkiUser();
         given().
                 headers(LoginRequestFactory.getRequestHeaders()).
                 body(LoginRequestFactory.generateLoginBody(CENTRE_ID, kvitkiUser.getEmail())).

@@ -1,9 +1,7 @@
 package by.itacademy.pazhydayeva.ui;
 
-import by.itacademy.pazhydayeva.ui.pages.HomePage;
-import by.itacademy.pazhydayeva.ui.pages.LoginPage;
 import by.itacademy.pazhydayeva.ui.pages.UpdateAccountPage;
-import by.itacademy.pazhydayeva.ui.services.LoginService;
+import by.itacademy.pazhydayeva.ui.steps.LoginSteps;
 import by.itacademy.pazhydayeva.user.User;
 import by.itacademy.pazhydayeva.utils.Util;
 import org.junit.jupiter.api.Assertions;
@@ -11,25 +9,19 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
+import static by.itacademy.pazhydayeva.ui.pages.UpdateAccountPage.*;
 import static by.itacademy.pazhydayeva.user.UserFactory.getRegisteredKvitkiUser;
 
 @Tag("UI")
 @Tag("UpdateAccount")
 public class UpdateAccountUiTest extends BaseTest {
-
-    private static final String EMPTY_FORENAME_VALIDATION_ERROR = "Пожалуйста, заполните поле (Имя)";
-    private static final String EMPTY_SURNAME_VALIDATION_ERROR = "Пожалуйста, заполните поле (Фамилия)";
-    private static final String SUCCESS_CONFIRMATION_MSG = "Данные сохранены";
-    private HomePage homePage = new HomePage();
-    private LoginPage loginPage = new LoginPage();
-    private UpdateAccountPage updateAccountPage = new UpdateAccountPage();
-    private User kvitkiUser = getRegisteredKvitkiUser();
-    private LoginService loginService = new LoginService(homePage, loginPage);
-
     @Test
     @DisplayName("Update First Name: success")
     public void testFirstNameUpdate() {
-        loginService.login(kvitkiUser.getEmail(), kvitkiUser.getPassword());
+        User kvitkiUser = getRegisteredKvitkiUser();
+        LoginSteps loginSteps = new LoginSteps();
+        loginSteps.login(kvitkiUser.getEmail(), kvitkiUser.getPassword());
+        UpdateAccountPage updateAccountPage = new UpdateAccountPage();
         updateAccountPage.clickUpdateContactDetailsBtn();
         updateAccountPage.removeForenameValue();
         updateAccountPage.enterNewForename(Util.getRandomForename());
@@ -40,7 +32,10 @@ public class UpdateAccountUiTest extends BaseTest {
     @Test
     @DisplayName("Remove existing First Name")
     public void testEmptyForenameFieldValidation() {
-        loginService.login(kvitkiUser.getEmail(), kvitkiUser.getPassword());
+        User kvitkiUser = getRegisteredKvitkiUser();
+        LoginSteps loginSteps = new LoginSteps();
+        loginSteps.login(kvitkiUser.getEmail(), kvitkiUser.getPassword());
+        UpdateAccountPage updateAccountPage = new UpdateAccountPage();
         updateAccountPage.clickUpdateContactDetailsBtn();
         updateAccountPage.removeForenameValue();
         updateAccountPage.clickOnSurnameField();
@@ -50,7 +45,10 @@ public class UpdateAccountUiTest extends BaseTest {
     @Test
     @DisplayName("Update Last Name: success")
     public void testLastNameUpdate() {
-        loginService.login(kvitkiUser.getEmail(), kvitkiUser.getPassword());
+        User kvitkiUser = getRegisteredKvitkiUser();
+        LoginSteps loginSteps = new LoginSteps();
+        loginSteps.login(kvitkiUser.getEmail(), kvitkiUser.getPassword());
+        UpdateAccountPage updateAccountPage = new UpdateAccountPage();
         updateAccountPage.clickUpdateContactDetailsBtn();
         updateAccountPage.removeSurnameValue();
         updateAccountPage.enterNewSurname(Util.getRandomSurname());
@@ -61,7 +59,10 @@ public class UpdateAccountUiTest extends BaseTest {
     @Test
     @DisplayName("Remove existing Last Name")
     public void testEmptySurnameFieldValidation() {
-        loginService.login(kvitkiUser.getEmail(), kvitkiUser.getPassword());
+        User kvitkiUser = getRegisteredKvitkiUser();
+        LoginSteps loginSteps = new LoginSteps();
+        loginSteps.login(kvitkiUser.getEmail(), kvitkiUser.getPassword());
+        UpdateAccountPage updateAccountPage = new UpdateAccountPage();
         updateAccountPage.clickUpdateContactDetailsBtn();
         updateAccountPage.removeSurnameValue();
         updateAccountPage.clickOnForenameField();
@@ -71,7 +72,10 @@ public class UpdateAccountUiTest extends BaseTest {
     @Test
     @DisplayName("Update Country field")
     public void testCountryUpdate() {
-        loginService.login(kvitkiUser.getEmail(), kvitkiUser.getPassword());
+        User kvitkiUser = getRegisteredKvitkiUser();
+        LoginSteps loginSteps = new LoginSteps();
+        loginSteps.login(kvitkiUser.getEmail(), kvitkiUser.getPassword());
+        UpdateAccountPage updateAccountPage = new UpdateAccountPage();
         updateAccountPage.clickUpdateContactDetailsBtn();
         updateAccountPage.expandCountryDdl();
         updateAccountPage.selectNewCountry();
@@ -82,7 +86,10 @@ public class UpdateAccountUiTest extends BaseTest {
     @Test
     @DisplayName("Update Country field")
     public void testCountryUpdateSec() {
-        loginService.login(kvitkiUser.getEmail(), kvitkiUser.getPassword());
+        User kvitkiUser = getRegisteredKvitkiUser();
+        LoginSteps loginSteps = new LoginSteps();
+        loginSteps.login(kvitkiUser.getEmail(), kvitkiUser.getPassword());
+        UpdateAccountPage updateAccountPage = new UpdateAccountPage();
         updateAccountPage.clickUpdateContactDetailsBtn();
         updateAccountPage.expandCountryDdl();
         updateAccountPage.searchCountry("латвия");

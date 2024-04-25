@@ -5,7 +5,7 @@ import by.itacademy.pazhydayeva.user.User;
 import java.util.HashMap;
 import java.util.Map;
 
-import static by.itacademy.pazhydayeva.api.Urls.BASE_URL;
+import static by.itacademy.pazhydayeva.api.Endpoints.BASE_URL;
 
 public class RegistrationRequestFactory extends KvitkiCommonRequestFactory {
 

@@ -18,6 +18,8 @@ public class LoginPage {
     private static final String LOGIN_BTN_XPATH = "//button[@class='ng-tns-c28-4']";
     private static final String ERROR_MSG_XPATH = "//div[@class='info-text']";
     private static final String USER_EMAIL_ON_ACCOUNT_PAGE_XPATH = "//div[@class='account-side-menu-account-email']";
+    public static final String WRONG_CREDENTIALS_ERROR_MSG = "Электронная почта или пароль недействительны. Система была обновлена, " +
+            "и в связи с этим мы перешли на вход по электронной почте.";
 
     public LoginPage() {
         this.driver = Driver.getDriver();
