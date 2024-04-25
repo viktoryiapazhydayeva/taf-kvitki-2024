@@ -18,9 +18,6 @@ import static by.itacademy.pazhydayeva.api.KvitkiCommonRequestFactory.CENTRE_ID;
 @Tag("Registration")
 public class RegistrationApiTest {
 
-    public static final User KVITKI_USER = UserFactory.getRegisteredKvitkiUser();
-    private String phoneNumber = Util.getRandomPhoneNumber(9);
-
     @Test
     @Disabled
     @DisplayName("Status 200: only Required fields are filled")
@@ -42,6 +39,7 @@ public class RegistrationApiTest {
     @DisplayName("Status 200: All fields are filled")
     public void testSuccessRegistrationFull() {
         User newKvitkiUser = UserFactory.getNewKvitkiUser();
+        String phoneNumber = Util.getRandomPhoneNumber(9);
         ValidatableResponse validatableResponse = given().
                 headers(RegistrationRequestFactory.getRequestHeaders()).
                 queryParams(RegistrationRequestFactory.getLanguageQueryParams()).
@@ -58,6 +56,7 @@ public class RegistrationApiTest {
     @Test
     @DisplayName("Status 400: Email in use- the same email")
     public void testRegistrationWithSameEmail() {
+        User KVITKI_USER = UserFactory.getRegisteredKvitkiUser();
         given().
                 headers(RegistrationRequestFactory.getRequestHeaders()).
                 queryParams(RegistrationRequestFactory.getLanguageQueryParams()).
