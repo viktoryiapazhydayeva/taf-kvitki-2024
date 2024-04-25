@@ -2,7 +2,7 @@ package by.itacademy.pazhydayeva.api;
 
 import by.itacademy.pazhydayeva.user.User;
 
-import static by.itacademy.pazhydayeva.api.Urls.BASE_URL;
+import static by.itacademy.pazhydayeva.api.Endpoints.BASE_URL;
 
 public class LoginRequestFactory extends KvitkiCommonRequestFactory {
 

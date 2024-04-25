@@ -1,6 +1,6 @@
 package by.itacademy.pazhydayeva.api;
 
-import static by.itacademy.pazhydayeva.api.Urls.BASE_URL;
+import static by.itacademy.pazhydayeva.api.Endpoints.BASE_URL;
 
 public class UpdateAccountRequestFactory extends KvitkiCommonRequestFactory {
 
