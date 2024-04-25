@@ -53,9 +53,8 @@ The project is divided into multiple modules:
 mvn clean test
 ```
 
-
 <b>To manage</b> tests execution scope use already assigned JUnit tags.
-<p>Default run configuration includes all tests:  <i>API and UI groups</i> (specified in pom.xml-> build-> plugins-> plugin (maven-surefire-plugin)-> configuration-> properties.</p>
+<p>Default run configuration includes all tests:  <i>API and UI groups</i> (specified in pom.xml-> build-> plugins-> plugin (maven-surefire-plugin)-> configuration-> properties).</p>
 <b>Available groups</b>: HomePage, Login, Registration, UpdateAccount, Search, API, UI.
 
 <b>To run a specific group</b>:
@@ -65,7 +64,7 @@ mvn test -Dgroups=API
 ```
 * or update 'groups' path in pom.xml-> 'build' section
 
-<p></p>
+<br></br>
 <b>Contributor:</b> Viktoryia Pazhydayeva
 
 
