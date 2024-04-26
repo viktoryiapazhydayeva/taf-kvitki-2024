@@ -70,6 +70,9 @@ public class UpdateAccountPage {
     }
 
     public String getConfirmationMsgText() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(3));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(CONFIRMATION_MSG_XPATH)));
+
         WebElement confirmationMessage = driver.findElement(By.xpath(CONFIRMATION_MSG_XPATH));
         return confirmationMessage.getText();
     }
