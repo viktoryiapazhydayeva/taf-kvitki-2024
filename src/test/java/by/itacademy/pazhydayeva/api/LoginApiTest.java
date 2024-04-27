@@ -55,6 +55,7 @@ public class LoginApiTest {
         given().
                 headers(LoginRequestFactory.getRequestHeaders()).
                 body(LoginRequestFactory.generateLoginBody(CENTRE_ID, kvitkiUser.getEmail(), Util.generatePassword())).
+                filter(new AllureRestAssured()).
                 when().
                 post(LoginRequestFactory.LOGIN_URL).
                 then().
@@ -70,6 +71,7 @@ public class LoginApiTest {
         given().
                 headers(LoginRequestFactory.getRequestHeaders()).
                 body(LoginRequestFactory.generateLoginBody(CENTRE_ID, Util.getRandomEmail(), kvitkiUser.getEmail())).
+                filter(new AllureRestAssured()).
                 when().
                 post(LoginRequestFactory.LOGIN_URL).
                 then().
@@ -84,6 +86,7 @@ public class LoginApiTest {
         given().
                 headers(LoginRequestFactory.getRequestHeaders()).
                 body(LoginRequestFactory.generateLoginBody(1020, Util.getRandomEmail(), Util.generatePassword())).
+                filter(new AllureRestAssured()).
                 when().
                 post(LoginRequestFactory.LOGIN_URL).
                 then().
@@ -98,6 +101,7 @@ public class LoginApiTest {
         given().
                 headers(LoginRequestFactory.getRequestHeaders()).
                 body(LoginRequestFactory.generateLoginBody(CENTRE_ID, "", Util.generatePassword())).
+                filter(new AllureRestAssured()).
                 when().
                 post(LoginRequestFactory.LOGIN_URL).
                 then().
@@ -112,6 +116,7 @@ public class LoginApiTest {
         given().
                 headers(LoginRequestFactory.getRequestHeaders()).
                 body(LoginRequestFactory.generateLoginBody(CENTRE_ID, Util.getRandomEmail(), "")).
+                filter(new AllureRestAssured()).
                 when().
                 post(LoginRequestFactory.LOGIN_URL).
                 then().
@@ -126,6 +131,7 @@ public class LoginApiTest {
         given().
                 headers(LoginRequestFactory.getRequestHeaders()).
                 body(LoginRequestFactory.generateLoginBody("1873", Util.getRandomEmail(), Util.generatePassword())).
+                filter(new AllureRestAssured()).
                 when().
                 post(LoginRequestFactory.LOGIN_URL).
                 then().
@@ -141,6 +147,7 @@ public class LoginApiTest {
         given().
                 headers(LoginRequestFactory.getRequestHeaders()).
                 body(LoginRequestFactory.generateLoginBody(CENTRE_ID, kvitkiUser.getEmail())).
+                filter(new AllureRestAssured()).
                 when().
                 post(LoginRequestFactory.LOGIN_URL).
                 then().

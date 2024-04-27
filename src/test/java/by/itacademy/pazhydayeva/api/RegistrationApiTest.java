@@ -3,6 +3,7 @@ package by.itacademy.pazhydayeva.api;
 import by.itacademy.pazhydayeva.user.User;
 import by.itacademy.pazhydayeva.user.UserFactory;
 import by.itacademy.pazhydayeva.utils.Util;
+import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.response.ValidatableResponse;
 import org.apache.http.HttpStatus;
 import org.junit.jupiter.api.Disabled;
@@ -27,6 +28,7 @@ public class RegistrationApiTest {
                 headers(RegistrationRequestFactory.getRequestHeaders()).
                 queryParams(RegistrationRequestFactory.getLanguageQueryParams()).
                 body(RegistrationRequestFactory.generateBodyWithRequiredFields(CENTRE_ID, newKvitkiUser)).
+                filter(new AllureRestAssured()).
                 when().
                 post(RegistrationRequestFactory.REGISTRATION_URL).
                 then().
@@ -44,6 +46,7 @@ public class RegistrationApiTest {
                 headers(RegistrationRequestFactory.getRequestHeaders()).
                 queryParams(RegistrationRequestFactory.getLanguageQueryParams()).
                 body(RegistrationRequestFactory.generateBodyWithAllFields(CENTRE_ID, newKvitkiUser, phoneNumber, true)).
+                filter(new AllureRestAssured()).
                 when().
                 post(RegistrationRequestFactory.REGISTRATION_URL).
                 then().
@@ -56,11 +59,12 @@ public class RegistrationApiTest {
     @Test
     @DisplayName("Status 400: Email in use- the same email")
     public void testRegistrationWithSameEmail() {
-        User KVITKI_USER = UserFactory.getRegisteredKvitkiUser();
+        User kvitkiUser = UserFactory.getRegisteredKvitkiUser();
         given().
                 headers(RegistrationRequestFactory.getRequestHeaders()).
                 queryParams(RegistrationRequestFactory.getLanguageQueryParams()).
-                body(RegistrationRequestFactory.generateBodyWithRequiredFields(CENTRE_ID, Util.getRandomForename(), Util.getRandomSurname(), KVITKI_USER.getEmail(), Util.generatePassword())).
+                body(RegistrationRequestFactory.generateBodyWithRequiredFields(CENTRE_ID, Util.getRandomForename(), Util.getRandomSurname(), kvitkiUser.getEmail(), Util.generatePassword())).
+                filter(new AllureRestAssured()).
                 when().
                 post(RegistrationRequestFactory.REGISTRATION_URL).
                 then().
@@ -76,6 +80,7 @@ public class RegistrationApiTest {
                 headers(RegistrationRequestFactory.getRequestHeaders()).
                 queryParams(RegistrationRequestFactory.getLanguageQueryParams()).
                 body(RegistrationRequestFactory.generateBodyWithRequiredFields(CENTRE_ID, Util.getRandomString(1), Util.getRandomSurname(), Util.getRandomSurname(), Util.generatePassword())).
+                filter(new AllureRestAssured()).
                 when().
                 post(RegistrationRequestFactory.REGISTRATION_URL).
                 then().
@@ -91,6 +96,7 @@ public class RegistrationApiTest {
                 headers(RegistrationRequestFactory.getRequestHeaders()).
                 queryParams(RegistrationRequestFactory.getLanguageQueryParams()).
                 body(RegistrationRequestFactory.generateBodyWithRequiredFields(CENTRE_ID, Util.getRandomForename(), Util.getRandomString(1), Util.getRandomEmail(), Util.generatePassword())).
+                filter(new AllureRestAssured()).
                 when().
                 post(RegistrationRequestFactory.REGISTRATION_URL).
                 then().
@@ -106,6 +112,7 @@ public class RegistrationApiTest {
                 headers(RegistrationRequestFactory.getRequestHeaders()).
                 queryParams(RegistrationRequestFactory.getLanguageQueryParams()).
                 body(RegistrationRequestFactory.generateBodyWithRequiredFields(CENTRE_ID, Util.getRandomForename(), Util.getRandomSurname(), Util.getRandomString(7), Util.generatePassword())).
+                filter(new AllureRestAssured()).
                 when().
                 post(RegistrationRequestFactory.REGISTRATION_URL).
                 then().
@@ -121,6 +128,7 @@ public class RegistrationApiTest {
                 headers(RegistrationRequestFactory.getRequestHeaders()).
                 queryParams(RegistrationRequestFactory.getLanguageQueryParams()).
                 body(RegistrationRequestFactory.generateBodyWithRequiredFields(CENTRE_ID, Util.getRandomForename(), Util.getRandomSurname(), Util.getRandomEmail(), Util.getRandomString(8))).
+                filter(new AllureRestAssured()).
                 when().
                 post(RegistrationRequestFactory.REGISTRATION_URL).
                 then().
@@ -136,6 +144,7 @@ public class RegistrationApiTest {
                 headers(RegistrationRequestFactory.getRequestHeaders()).
                 queryParams(RegistrationRequestFactory.getLanguageQueryParams()).
                 body(RegistrationRequestFactory.generateBodyWithRequiredFields(CENTRE_ID, Util.getRandomForename(), Util.getRandomSurname(), Util.getRandomEmail(), Util.getShortRandomPassword())).
+                filter(new AllureRestAssured()).
                 when().
                 post(RegistrationRequestFactory.REGISTRATION_URL).
                 then().
@@ -151,6 +160,7 @@ public class RegistrationApiTest {
                 headers(RegistrationRequestFactory.getRequestHeaders()).
                 queryParams(RegistrationRequestFactory.getLanguageQueryParams()).
                 body(RegistrationRequestFactory.generateBodyWithRequiredFields(CENTRE_ID, Util.getRandomString(600), Util.getRandomSurname(), Util.getRandomEmail(), Util.generatePassword())).
+                filter(new AllureRestAssured()).
                 when().
                 post(RegistrationRequestFactory.REGISTRATION_URL).
                 then().
@@ -166,6 +176,7 @@ public class RegistrationApiTest {
                 headers(RegistrationRequestFactory.getRequestHeaders()).
                 queryParams(RegistrationRequestFactory.getLanguageQueryParams()).
                 body(RegistrationRequestFactory.generateBodyWithRequiredFields(CENTRE_ID, Util.getRandomForename(), Util.getRandomString(600), Util.getRandomEmail(), Util.generatePassword())).
+                filter(new AllureRestAssured()).
                 when().
                 post(RegistrationRequestFactory.REGISTRATION_URL).
                 then().
@@ -180,6 +191,7 @@ public class RegistrationApiTest {
         given().
                 headers(RegistrationRequestFactory.getRequestHeaders()).
                 body(RegistrationRequestFactory.generateBodyWithRequiredFields(CENTRE_ID, Util.getRandomForename(), Util.getRandomSurname(), Util.getRandomEmail(), Util.generatePassword())).
+                filter(new AllureRestAssured()).
                 when().
                 post(RegistrationRequestFactory.REGISTRATION_URL).
                 then().
@@ -195,6 +207,7 @@ public class RegistrationApiTest {
                 headers(RegistrationRequestFactory.getRequestHeaders()).
                 queryParams(RegistrationRequestFactory.getInvalidQueryParams()).
                 body(RegistrationRequestFactory.generateBodyWithRequiredFields(CENTRE_ID, Util.getRandomForename(), Util.getRandomSurname(), Util.getRandomEmail(), Util.generatePassword())).
+                filter(new AllureRestAssured()).
                 when().
                 post(RegistrationRequestFactory.REGISTRATION_URL).
                 then().
